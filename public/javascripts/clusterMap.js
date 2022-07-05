@@ -101,7 +101,7 @@ map.on('load', () => {
     // the location of the feature, with
     // description HTML from its properties.
     map.on('click', 'unclustered-point', (e) => {
-        const {popUpMarkup} = e.features[0].properties.popUpMarkup
+        const popUpMarkup = e.features[0].properties.popUpMarkup;
         const coordinates = e.features[0].geometry.coordinates.slice();
         // Ensure that if the map is zoomed out such that
         // multiple copies of the feature are visible, the
