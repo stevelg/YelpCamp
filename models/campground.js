@@ -8,9 +8,12 @@ const ImageSchema = new Schema({
 })
 
 ImageSchema.virtual('thumbnail').get(function () {
-    return this.url.replace('/upload', '/upload/w_200');
+    return this.url.replace('/upload', '/upload/c_crop,ar_1:1');
 });
 
+ImageSchema.virtual('carousel').get(function () {
+    return this.url.replace('/upload', '/upload/c_crop,ar_4:3');
+});
 const opts = {toJSON: {virtuals: true}};
 
 const CampgroundSchema = new Schema({
